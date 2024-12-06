@@ -19,6 +19,7 @@ let videoSprite;
 let windowWidth = 640;
 let windowHeight = 480;
 
+// 
 function setVideoContent(){
     camera = new THREE.PerspectiveCamera(50, video.videoWidth / video.videoHeight, 1, 5000);
 
@@ -53,7 +54,7 @@ function setTriangleToScene(){
     triGeo.faces.push(new THREE.Face3(0, 1, 2));
 
     triangle = new THREE.Mesh(triGeo, new THREE.MeshBasicMaterial({ side: THREE.DoubleSide }));
-    triangle.visible = false;
+    triangle.visible = true;
     scene.add(triangle);
 }
 
@@ -197,6 +198,7 @@ async function renderPrediction() {
             glassesObj.rotation.x += diffPosY/ rotFactorY;
 
             glassesObj.rotation.x += 0.10;
+            
 
             if(Math.abs(glassesObj.rotation.y) > 0.15){
                 faceObj.position.z -= 40;
